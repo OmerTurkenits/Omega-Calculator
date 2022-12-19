@@ -1,3 +1,4 @@
+from Exceptions.Exceptions import SumError
 from Expressions import MathExpression
 from Expressions.OneOperandMathExpression import OneOperandMathExpression
 
@@ -24,7 +25,7 @@ class Sum(OneOperandMathExpression):
             is_neg = -1
 
         if not n % 1 == 0:
-            raise ValueError
+            raise SumError
 
         while n > 0:
             dig_sum += n % 10
