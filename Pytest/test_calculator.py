@@ -207,7 +207,7 @@ def test_complex_10(capsys):
     Calculator.calculate("(1234#%3)$(5^3*0.5)")
     stdout, stderr = capsys.readouterr()
     print(stdout)
-    assert stdout == "62.5.0\n"
+    assert stdout == "62.5\n"
 
 
 def test_complex_11(capsys):
