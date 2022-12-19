@@ -14,6 +14,9 @@ from Expressions.UnaryMinus import UnaryMinus
 
 
 class Config:
+
+    WELCOME_MESSAGE = "\n\033[92mWelcome To The Omega Calculator!\033[0m"
+
     # Consts for operator signs:
     ADD_SIGN = '+'
     SUB_SIGN = '-'
@@ -39,5 +42,6 @@ class Config:
     operator_classes = {ADD_SIGN: Add, SUB_SIGN: Sub, MUL_SIGN: Mul, DIV_SIGN: Div, POW_SIGN: Pow, MOD_SIGN: Mod,
                         MAX_SIGN: Max, MIN_SIGN: Min, AVG_SIGN: Avg, NEG_SIGN: Neg, FAC_SIGN: Fac, SUM_SIGN: Sum}
 
-    right = [Neg, UnaryMinus]
-    left = [Fac, Sum]
+    #TODO: replace 'M'
+    right = [NEG_SIGN, 'M']
+    left = [FAC_SIGN, SUM_SIGN]
