@@ -49,14 +49,27 @@ class CalcFunctions:
                         expression_string[curr_index - 1] != Config.CLOSED_BRACKET_SIGN:
                     expression_string[curr_index] = char
 
+            # If the minuses are after opening brackets they are always unary.
+            if c == Config.OPEN_BRACKET_SIGN:
+                for i in range(curr_index+1, len(expression_string)-1):
+                    if expression_string[i] == Config.SUB_SIGN:
+                        expression_string[i] = char
+                    elif expression_string[i] not in Config.right:
+                        break
+
         expression_string = "".join(expression_string)
         return expression_string
 
     @staticmethod
     def find_unary_minus_char():
-        Config.UNARY_MINUS_SIGN = 'M'
+        """
+        A function that makes the sign of the unary minus char an unused char.
+        :return: none
+        """
+        Config.UNARY_MINUS_SIGN = list(set(Config.MINUS_SIGN_OPTIONS).difference(set(Config.operator_order.values())))[0]
         Config.operator_order[Config.UNARY_MINUS_SIGN] = CalcFunctions.max_order()
         Config.operator_classes[Config.UNARY_MINUS_SIGN] = UnaryMinus
+        Config.right.append(Config.UNARY_MINUS_SIGN)
 
     @staticmethod
     def max_order() -> int:
@@ -78,7 +91,7 @@ class CalcFunctions:
         :return: if there is an invalid symbol, raises an exception.
         """
         for i, c in enumerate(expression_string):
-            if not (c in Config.operator_order.keys() or c == '.' or c == '(' or c == ')'
+            if not (c in Config.operator_order.keys() or c == '.' or c == Config.OPEN_BRACKET_SIGN or c == Config.CLOSED_BRACKET_SIGN
                     or CalcFunctions.is_numeric(c)):
                 raise InvalidSymbolError(c, i)
         return expression_string
