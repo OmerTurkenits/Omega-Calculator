@@ -34,6 +34,10 @@ class Config:
     CLOSED_BRACKET_SIGN = ')'
     UNARY_MINUS_SIGN = ''
 
+    MINUS_SIGN_OPTIONS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+               'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
     # Operator orders
     operator_order = {ADD_SIGN: 1, SUB_SIGN: 1, MUL_SIGN: 2, DIV_SIGN: 2, POW_SIGN: 3, MOD_SIGN: 4, MAX_SIGN: 5,
                       MIN_SIGN: 5, AVG_SIGN: 5, NEG_SIGN: 6, FAC_SIGN: 6, SUM_SIGN: 6}
@@ -42,6 +46,5 @@ class Config:
     operator_classes = {ADD_SIGN: Add, SUB_SIGN: Sub, MUL_SIGN: Mul, DIV_SIGN: Div, POW_SIGN: Pow, MOD_SIGN: Mod,
                         MAX_SIGN: Max, MIN_SIGN: Min, AVG_SIGN: Avg, NEG_SIGN: Neg, FAC_SIGN: Fac, SUM_SIGN: Sum}
 
-    #TODO: replace 'M'
-    right = [NEG_SIGN, 'M']
+    right = [NEG_SIGN]
     left = [FAC_SIGN, SUM_SIGN]
