@@ -10,13 +10,17 @@ from Expressions.UnaryMinus import UnaryMinus
 class Calculator:
 
     @staticmethod
-    def calculate(expression_string: str):
+    def pre_calculate(expression_string: str):
+        """
+        A function that allows not main called functions (like testing) to call the "find_unary_minus_char" function.
+        :param expression_string:
+        :return: none
+        """
         CalcFunctions.find_unary_minus_char()
-
-        Calculator.calculate2(expression_string)
+        Calculator.calculate(expression_string)
 
     @staticmethod
-    def calculate2(expression_string: str):
+    def calculate(expression_string: str):
 
         """
         A function that gets an expression string and calculates the expression result.
