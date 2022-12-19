@@ -1,3 +1,4 @@
+from Exceptions.Exceptions import FactorialError
 from Expressions import MathExpression
 from Expressions.OneOperandMathExpression import OneOperandMathExpression
 
@@ -14,11 +15,11 @@ class Fac(OneOperandMathExpression):
         return right == '' and not left == ''
 
     @staticmethod
-    def _factorial(n: float):
-        fact = 1
+    def _factorial(n: float) -> float:
+        fact = 1.0
 
         if n < 0 or not n % 1 == 0:
-            raise ValueError
+            raise FactorialError
 
         for i in range(1, int(n) + 1):
             fact = fact * i

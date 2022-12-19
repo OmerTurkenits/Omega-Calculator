@@ -1,4 +1,4 @@
-from CalculatorModule import Calc
+from Exceptions.Exceptions import OperatorError
 from Expressions import MathExpression
 from Expressions.TwoOperandMathExpression import TwoOperandMathExpression
 

@@ -2,7 +2,7 @@ from Expressions import MathExpression
 from Expressions.OneOperandMathExpression import OneOperandMathExpression
 
 
-class Neg(OneOperandMathExpression):  # '~'
+class Neg(OneOperandMathExpression):
     def __init__(self, exp: MathExpression):
         super().__init__(exp)
 
